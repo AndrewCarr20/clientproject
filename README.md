@@ -18,6 +18,6 @@ Assignment 3:
 
 Chiemela Amaefule - hw2.js, styles.css, hw2.html
 
-Brianna McDermott - 
+Brianna McDermott - Login_pg.test.js, index.js, Validregistration.jsx
 
 Andrew carranza - fuelQuoteScript.js, fuelQuoteScript.test.js, indexHistoryScript.js
