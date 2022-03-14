@@ -14,8 +14,8 @@ Andrew carranza  - stylesFuelQuote.css, indexHistory.html , indexFuelQuote.html
 
 Assignment 3:
 
-Chiemela Amaefule - 
+Chiemela Amaefule - hw2.js
 
-Brianna McDermott -
+Brianna McDermott - 
 
-Andrew carranza - 
+Andrew carranza - fuelQuoteScript.js
