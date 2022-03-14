@@ -18,4 +18,4 @@ Chiemela Amaefule - hw2.js, styles.css, hw2.html
 
 Brianna McDermott - 
 
-Andrew carranza - fuelQuoteScript.js, fuelQuoteScript.test.js, 
+Andrew carranza - fuelQuoteScript.js, fuelQuoteScript.test.js, indexHistoryScript.js
