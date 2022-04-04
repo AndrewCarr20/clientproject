@@ -26,8 +26,8 @@ Andrew carranza - fuelQuoteScript.js, fuelQuoteScript.test.js, indexHistoryScrip
 
 Assignment 4: 
 
-Chiemela Amaefule - 
+Chiemela Amaefule - connection.php, index.php
 
-Brianna McDermott - 
+Brianna McDermott - index.php, ./pages -> reistration.php, login_pg.php ./include ->login.inc.php, reister.inc.php, func.inc.php, db.inc.php
 
-Andrew carranza - 
+Andrew carranza - app.js , index.js, env
