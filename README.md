@@ -2,6 +2,7 @@
 cosc 4353
 A software design project created by three group members.
 
+
 Current Files:
 
 Asignment 2:
@@ -21,3 +22,12 @@ Chiemela Amaefule - hw2.js, styles.css, hw2.html
 Brianna McDermott - Login_pg.test.js, index.js, Validregistration.jsx
 
 Andrew carranza - fuelQuoteScript.js, fuelQuoteScript.test.js, indexHistoryScript.js
+
+
+Assignment 4: 
+
+Chiemela Amaefule - 
+
+Brianna McDermott - 
+
+Andrew carranza - 
