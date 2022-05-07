@@ -1,0 +1,296 @@
+ <?php
+
+    ?>
+
+
+
+ <?php
+    session_start();
+
+
+    //connection
+    // session_start();
+
+    // if ($_SESSION['users_id'] == '') { // echo session for users_id variable
+    //     echo 'true';
+    // }
+    $user = 'root';
+    $pass = '';
+    $db = '4353db10';
+
+    $mysqli = new mysqli('localhost', $user, $pass, $db) or die("unable to connect");
+
+    echo "connected";
+
+
+
+
+
+    if (isset($_POST['submitC'])) { // submits form
+        //users
+        // $users_id = $_POST['users_id'];
+
+        // $users_id = $_POST['users_id'];
+
+        // $_SESSION['users_id'] = $users_id;
+        // echo '$users_id';
+        // echo $users_id;
+        // echo $_SESSION['users_id'];
+
+        $fullName = $_POST['fullName'];
+
+
+        $address1 = $_POST['address1'];
+        // $_SESSION['address1'] = $address1;
+        $address2 = $_POST['address2'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+        $zipcode = $_POST['zipcode'];
+
+
+        //query data in database
+        // values($gallonsReq, $pricePerGal,$delivAddress, $delivDate, $total)";
+        // $sql1 = "INSERT INTO users( users_id , fullName, address1, address2, city, state, zipcode)  values($users_id , '$fullName','$address1','$address2','$city','$state', $zipcode)";
+        $sql1 = "INSERT INTO users(  fullName, address1, address2, city, state, zipcode)  values( '$fullName','$address1','$address2','$city','$state', $zipcode)";
+        #// echo "$sql1";
+
+        if ($mysqli->query($sql1) === FALSE) {
+            // echo $mysqli->error;
+            echo "Please choose a unique Employee_id or choose a usersname that exist.";
+
+            header('location: createUser1.php');
+            exit(0);
+        } else {
+
+            $sql = "SELECT users_id FROM users where fullName = '$fullName'";
+            $result3 =  mysqli_query($mysqli, $sql);
+            $users_data24 = mysqli_fetch_assoc($result3);
+            $_SESSION['users_id'] = $users_data24['users_id'];
+            $users_id2 = $_SESSION['users_id'];
+            echo $users_id2;
+            header('location: registration.php'); //to registration page
+        }
+    }
+
+
+    ?>
+
+
+ <?php
+
+
+
+    ?>
+
+
+
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+     <meta charset="UTF-8" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="styles.css" />
+     <title>Document</title>
+ </head>
+
+ <body>
+
+
+
+     <div style="padding-right:100px">
+
+     </div>
+
+     <style>
+         body table td th {
+             margin: 100px auto;
+
+         }
+
+         table,
+         td,
+         th {
+             border: 1px solid;
+         }
+
+         table {
+             width: 100%;
+             border-collapse: collapse;
+         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         body {
+
+             margin: 0px auto;
+             font-family: Arial, Helvetica, sans-serif;
+         }
+
+         .topnav {
+
+             overflow: hidden;
+             background-color: #333;
+         }
+
+         .topnav a {
+
+
+
+
+             float: left;
+             color: #f2f2f2;
+             text-align: center;
+             padding: 14px 16px;
+             text-decoration: none;
+             font-size: 17px;
+         }
+
+         .topnav a:hover {
+             background-color: #ddd;
+             color: black;
+         }
+
+         .topnav a.active {
+             background-color: #04AA6D;
+             color: white;
+         }
+
+         .topnav-right {
+             float: right;
+         }
+     </style>
+
+
+
+
+     <div class="container">
+         <div class="header">
+             <h2>Create User - Fill out tables below </h2>
+             <h2></h2>
+         </div>
+         <form action="createUser1.php" class="form" id="form" method="POST">
+             <!-- <div class="form-control">
+                 <label for="users_id">id</label>
+                 <input type="text" maxlength="50" id="users_id" name="users_id" required />
+                 <span class="error-message"></span>
+             </div> -->
+
+
+             <div class="form-control">
+                 <label for="fullname">Full Name</label>
+                 <input type="text" maxlength="50" id="fullname" name="fullName" required />
+                 <span class="error-message"></span>
+             </div>
+             <div class="form-control">
+                 <label for="Address1">Address 1</label>
+                 <input type="text" maxlength="100" id="Address1" name="address1" required />
+                 <span class="error-message"></span>
+             </div>
+             <div class="form-control">
+                 <label for="address2">Address 2</label>
+                 <input type="text" maxlength="100" id="Address2" name="address2" required />
+                 <span class="error-message"></span>
+             </div>
+             <div class="form-control">
+                 <label for="zity">City</label>
+                 <input type="text" maxlength="100" id="city" name="city" required />
+                 <span class="error-message"></span>
+             </div>
+             <div class="form-control">
+                 <label for="">State</label>
+                 <select name="state" id="state" required>
+                     <option value="">--Select a state--</option>
+                     <option value="AL">AL</option>
+                     <option value="AK">AK</option>
+                     <option value="AZ">AZ</option>
+                     <option value="AR">AR</option>
+                     <option value="CA">CA</option>
+                     <option value="CO">CO</option>
+                     <option value="CT">CT</option>
+                     <option value="DE">DE</option>
+                     <option value="DC">DC</option>
+                     <option value="FL">FL</option>
+                     <option value="GA">GA</option>
+                     <option value="ID">ID</option>
+                     <option value="IL">IL</option>
+                     <option value="IN">IN</option>
+                     <option value="IA">IA</option>
+                     <option value="KS">KS</option>
+                     <option value="KY">KY</option>
+                     <option value="LA">LA</option>
+                     <option value="ME">ME</option>
+                     <option value="MD">MD</option>
+                     <option value="MA">MA</option>
+                     <option value="MI">MI</option>
+                     <option value="MN">MN</option>
+                     <option value="MS">MS</option>
+                     <option value="MO">MO</option>
+                     <option value="MT">MT</option>
+                     <option value="NE">NE</option>
+                     <option value="NV">NV</option>
+                     <option value="NH">NH</option>
+                     <option value="NH">NH</option>
+                     <option value="NJ">NJ</option>
+                     <option value="NM">NM</option>
+                     <option value="NY">NY</option>
+                     <option value="NC">NC</option>
+                     <option value="ND">ND</option>
+                     <option value="OH">OH</option>
+                     <option value="OK">OK</option>
+                     <option value="OR">OR</option>
+                     <option value="PA">PA</option>
+                     <option value="RI">RI</option>
+                     <option value="SC">SC</option>
+                     <option value="SD">SD</option>
+                     <option value="TN">TN</option>
+                     <option value="TX">TX</option>
+                     <option value="VT">VT</option>
+                     <option value="VA">VA</option>
+                     <option value="WA">WA</option>
+                     <option value="WV">WV</option>
+                     <option value="WI">WI</option>
+                     <option value="WY">WY</option>
+                 </select>
+                 <span class="error-message"></span>
+             </div>
+             <div class="form-control">
+                 <label for="zipcode">Zipcode</label>
+                 <input type="text" maxlength="9" id="zipcode" name="zipcode" minlength="5" required />
+                 <span class="error-message"></span>
+             </div>
+             <div class="buttons">
+                 <button type="submit" name='submitC'>Submit</button>
+             </div>
+         </form>
+
+
+         <?php
+
+
+            ?>
+     </div>
+     <script>
+
+     </script>
+     <style>
+
+     </style>
+ </body>
+
+ </html>
